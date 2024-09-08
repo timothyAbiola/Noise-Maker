@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noise Maker App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main>
+        <div class="left-section"></div>
+        <div class="right-section">
+            <div class="controls">
+                <div class="d-flex">
+                    <h3>List of Noise Makers</h3>
+                    <img src="/image/writing.jpg" alt="writing" width="50px" height="30px">
+                </div>
+                <% if(list < 1){ %>
+                <p>No Student has made noise, you have really serious students in the class</p>
+                <% }else{ %>
+                <p>Total number of noise makers: <%= list.length %></p>
+                <% } %>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Name</th>
+                        <th>X Times</th>
+                        <th class="wid">Actions</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <!-- Add noise makers dynamically here -->
+                    <% if(list < 1) {%>
+                     <!-- <tr>
+                        <td colspan="4">
+                            <form action="/noise" method="get">
+                                <button class="btn-add">Add Noise Makers</button>
+                            </form>
+                        </td>     
+                   </tr> -->
+                    <% } else{ 
+                        list.forEach((person, index) => { ;
+                        %>
+                     <tr>
+                        <td> <%= index + 1 %> </td>
+                        <td><%= person.name %> </td>
+                        <td >
+                            <form action="/dec" method="post">
+                                <button name="index" value="<%=index%>">-</button>
+                            </form>
+                             <%= person.num %> 
+                            <form action="/inc" method="post">
+                                <button name="index" value="<%=index%>">+</button>
+                            </form>     
+                        </td>
+                        <td class="action">
+                            <form action="/del" method="post">
+                                <button style="background-color: red;" name="index" value="<%= index%>">Delete</button>    
+                            </form>
+                            <form action="/edit" method="post">
+                                <button style="background-color: rgb(179, 179, 7);" name="index" value="<%= index%>">Edit</button>    
+                            </form>
+                        </td>
+                    </tr>
+                    <% });} %>
+                    <tr>
+                        <td colspan="4">
+                            <form action="/noise" method="get">
+                                <button class="btn-add">Add Noise Makers</button>
+                            </form>
+                        </td>     
+                   </tr>
+                      
+                    
+                    
+                    
+                    
+                </tbody>
+               
+            </table>
+        </div>
+    </main>
+</body>
+</html>

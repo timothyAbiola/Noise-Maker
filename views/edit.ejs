@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Noise Maker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main>
+        <div class="left-section"></div>
+        <div class="right-section">
+           <h1>The Noise Maker App</h1>
+           <form action="/edited" method="post" class="form-box form">
+                <input type="text" name="name" placeholder="Edit the name of the noise maker" autofocus class="noise-input" value="<%= list[index].name %>">
+                <button class="btn-add" name="index" value="<%= index %> ">Edit</button>
+           </form>
+        </div>
+    </main>
+</body>
+</html>
